@@ -1,6 +1,20 @@
+#BruteForce
+
 arr=[2,7,11,15]
 target = 9
 for i in range(0,len(arr)-1):
   for j in range(i+1,len(arr)):
     if arr[i] +arr[j] == target :
       print([i]+[j])
+
+#Optimized
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen={}   #dictionary to check 
+
+        for i ,value in enumerate(nums): #we use enumerate in dictionary for index,value
+            if target -value in seen :  #if target-value is present in seen dictionary
+                return ([seen[target-value],i]) #then we return the index of seen[target-value] and i
+            elif value not in seen :
+                seen[value]=i   #if not in seen the we add the index value in seen[value]
