@@ -1,0 +1,17 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        mini=prices[0]
+        profit=0
+
+        for i in range(len(prices)):
+            cost=prices[i] - mini
+            profit=max(profit,cost)
+            mini=min(mini,prices[i])
+        return profit
+
+
+#Initially we save the first price in variable called mini,and profit is zero
+In for loop we find the cost be subtracting each price with first value
+For profit we take max of variavle profit or cost
+Now we update mini with minimum of mini and prices[i]
+Finally return profit
